@@ -1,0 +1,32 @@
+FROM debian:bookworm-slim
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends vsftpd && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN useradd -m -s /bin/bash labuser && \
+    echo 'labuser:labpassword' | chpasswd
+
+RUN mkdir -p /var/run/vsftpd/empty
+
+RUN printf '%s\n' \
+    'listen=YES' \
+    'listen_ipv6=NO' \
+    'anonymous_enable=NO' \
+    'local_enable=YES' \
+    'write_enable=YES' \
+    'local_umask=022' \
+    'dirmessage_enable=YES' \
+    'use_localtime=YES' \
+    'xferlog_enable=YES' \
+    'connect_from_port_20=YES' \
+    'secure_chroot_dir=/var/run/vsftpd/empty' \
+    'pam_service_name=ftp' \
+    'pasv_enable=YES' \
+    'pasv_min_port=30000' \
+    'pasv_max_port=30009' \
+    > /etc/vsftpd.conf
+
+EXPOSE 21
+
+CMD ["/usr/sbin/vsftpd", "/etc/vsftpd.conf"]

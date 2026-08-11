@@ -1,0 +1,59 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Windows
+$RECYCLE.BIN/
+*.lnk
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local credentials / keys
+*.pem
+*.key
+*.crt
+id_rsa
+id_rsa.pub
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Docker local data
+docker-data/
+docker-volumes/
+
+# Build / generated files
+dist/
+build/
+
+# Test output
+test-results/
+coverage/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
