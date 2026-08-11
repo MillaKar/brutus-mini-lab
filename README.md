@@ -97,9 +97,9 @@ After login, the SSH session can be closed with "exit".
 ## 9. FTP target
 The FTP Service runs inside the FTP target container on TCP port 21.  
 Docker publishes it as:  
-- localhost:2121  
+	localhost:2121  
 FTP passive-mode port:  
-- 30000-30009  
+	30000-30009  
 Manual authentication test:  
 	curl -v -u 'labuser:labpassword' ftp://localhost:2121/
 The test successfully demonstrated:  
