@@ -101,7 +101,7 @@ Docker publishes it as:
 FTP passive-mode port:  
 	- 30000-30009  
 Manual authentication test:  
-curl -v -u 'labuser:labpassword' ftp://localhost:2121/  
+	curl -v -u 'labuser:labpassword' ftp://localhost:2121/
 The test successfully demonstrated:  
 	- connection to the FTP Service  
 	- authentication using the laboratory account  
@@ -111,11 +111,11 @@ The test successfully demonstrated:
 The FTP Service uses vsftpd.  
 Anonymous authentication is disabled.  
 
-## 10. Telnet target
-The Telnet Service runs inside the Telnet target container on TCP port 23.
-Docker publishes it as:
-	localhost:2323
-The Service was tested from the host environment and successfully returned a Telnet login prompt. 
+## 10. Telnet target  
+The Telnet Service runs inside the Telnet target container on TCP port 23.  
+Docker publishes it as:  
+	localhost:2323  
+The Service was tested from the host environment and successfully returned a Telnet login prompt.  
 
 The test envrironment does not currently require a native Telnet client on the host.
 
@@ -157,21 +157,21 @@ Brutus is an open-source multi-protocol authentication testing tool developed by
 
 Official repository:
 
-https://github.com/praetorian-inc/brutus
+https://github.com/praetorian-inc/brutus  
 
-The official project describes Brutus as a multi-protocol credential testing tool implemented in Go. The project documentation lists support for multiple network authentication protocols. [1]
+The official project describes Brutus as a multi-protocol credential testing tool implemented in Go. The project documentation lists support for multiple network authentication protocols.  
 
 Brutus integration into this laboratory is currently in progress.
 
 The final version of this section will document:
 
-Brutus version used
-installation method
-configuration
-supported protocols used in this lab
-exact test commands
-test results
-limitations and observations
+- Brutus version used
+- installation method
+- configuration
+- supported protocols used in this lab
+- exact test commands
+- test results
+- limitations and observations
 
 ## 14. Testing methodology
 
@@ -195,14 +195,14 @@ The final implementation will use small laboratory-specific wordlists rather tha
 
 Stop the laboratory:
 
-docker compose down
+	docker compose down
 
 To rebuild the containers:
 
-docker compose build --no-cache
+	docker compose build --no-cache
 
 To start the laboratory again:
 
-docker compose up -d
+	docker compose up -d
 
 ## References
