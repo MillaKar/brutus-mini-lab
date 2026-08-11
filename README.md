@@ -27,12 +27,12 @@ The FTP service also uses a passive-mode port range: 30000-30009. These ports ar
 
 ## 4. Requirements
 
-The lab is designed to run using Docker.
+The lab is designed to run using Docker.  
 
-Required software:
-	- Docker Desktop or another Docker Engine supporting Docker Compose
-	- Git
-	- A terminal capable of running Shell commands.
+Required software:  
+	- Docker Desktop or another Docker Engine supporting Docker Compose  
+	- Git  
+	- A terminal capable of running Shell commands.  
 
 The current development environment is Windows with Docker Desktop and Git Bash.
 
@@ -72,8 +72,8 @@ All three target containers should report an Up status.
 
 The current laboratory targets use the following intentionally weak test credentials:
 
-Username: labuser
-Password: labpassword
+Username: labuser  
+Password: labpassword  
 
 These credentials exist only inside the Docker laboratory.
 
@@ -83,34 +83,33 @@ The weak credentials are intentionally included so that credential-testing behav
 
 The SSH Service runs inside the SSH target container on TCP port 22.
 
-Docker publishes it as:
+Docker publishes it as:  
+	- localhost:2222  
+Manual connectivity test:  
+	ssh -p 2222 labuser@localhost  
+Use the given credentials when prompted:  
+	- Username: labuser  
+	- Password: labpassword  
+The SSH connection was successfully tested during development.  
 
-	- localhost:2222
-Manual connectivity test:
-	ssh -p 2222 labuser@localhost
-Use the given credentials when prompted:
-	- Username: labuser
-	- Password: labpassword
-The SSH connection was successfully tested during development.
-
-After login, the SSH session can be closed with "exit".
+After login, the SSH session can be closed with "exit".  
 
 ## 9. FTP target
-The FTP Service runs inside the FTP target container on TCP port 21.
-Docker publishes it as:
-	- localhost:2121
-FTP passive-mode port:
-	- 30000-30009
-Manual authentication test:
-curl -v -u 'labuser:labpassword' ftp://localhost:2121/
-The test successfully demonstrated:
-	- connection to the FTP Service
-	- authentication using the laboratory account
-	- successful 230 Login successful response
-	- successful passive-mode data connection
-	- successful directory listing (?)
-The FTP Service uses vsftpd.
-Anonymous authentication is disabled.
+The FTP Service runs inside the FTP target container on TCP port 21.  
+Docker publishes it as:  
+	- localhost:2121  
+FTP passive-mode port:  
+	- 30000-30009  
+Manual authentication test:  
+curl -v -u 'labuser:labpassword' ftp://localhost:2121/  
+The test successfully demonstrated:  
+	- connection to the FTP Service  
+	- authentication using the laboratory account  
+	- successful 230 Login successful response  
+	- successful passive-mode data connection  
+	- successful directory listing (?)  
+The FTP Service uses vsftpd.  
+Anonymous authentication is disabled.  
 
 ## 10. Telnet target
 The Telnet Service runs inside the Telnet target container on TCP port 23.
