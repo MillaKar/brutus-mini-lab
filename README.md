@@ -16,16 +16,16 @@ The Project contains both:
 	1. vulnerable configurations, where weak test credentials can be tested
 	2. secured configurations, where security controls are introduced and the same tests can be compared.
 
-2. Objectives
+## 2. Objectives
 
-3. Lab architecture
+## 3. Lab architecture
 
 The lab consists of three Docker containers connected to a dedicated Docker Network.
 Hos machine --> Docker / Docker Compose --> brutus-lab Network --> SSH target (port 2222 --> 22), FTP target (port 2121 --> 21) and Telnet target (port 2323 --> 23).
 
 The FTP service also uses a passive-mode port range: 30000-30009. These ports are published by Docker because FTP passive-mode data connections require additional ports.
 
-4. Requirements
+## 4. Requirements
 
 The lab is designed to run using Docker.
 
@@ -38,7 +38,7 @@ The current development environment is Windows with Docker Desktop and Git Bash.
 
 The lab itself runs the vulnerable services inside Debian-based Docker containers.
 
-5. Project structure
+## 5. Project structure
 
 Current Project structure:
 
@@ -46,7 +46,7 @@ brutus-mini-lab/ ├── docker-compose.yml │ ├── targets/ │ ├─�
 
 Additional scripts and documentation will be added during the implementation.
 
-6. Setup
+## 6. Setup
 
 Clone the repository and enter the Project directory:
 
@@ -68,7 +68,7 @@ Check the status:
 
 All three target containers should report an Up status.
 
-7. Vulnerable test credentials
+## 7. Vulnerable test credentials
 
 The current laboratory targets use the following intentionally weak test credentials:
 
@@ -79,7 +79,7 @@ These credentials exist only inside the Docker laboratory.
 
 The weak credentials are intentionally included so that credential-testing behaviour can later be demonstrated in a controlled environment.
 
-8. SSH Target
+## 8. SSH Target
 
 The SSH Service runs inside the SSH target container on TCP port 22.
 
@@ -95,7 +95,7 @@ The SSH connection was successfully tested during development.
 
 After login, the SSH session can be closed with "exit".
 
-9. FTP target
+## 9. FTP target
 The FTP Service runs inside the FTP target container on TCP port 21.
 Docker publishes it as:
 	- localhost:2121
@@ -112,7 +112,7 @@ The test successfully demonstrated:
 The FTP Service uses vsftpd.
 Anonymous authentication is disabled.
 
-10. Telnet target
+## 10. Telnet target
 The Telnet Service runs inside the Telnet target container on TCP port 23.
 Docker publishes it as:
 	localhost:2323
@@ -120,7 +120,7 @@ The Service was tested from the host environment and successfully returned a Tel
 
 The test envrironment does not currently require a native Telnet client on the host.
 
-11. Vulnerable configuration
+## 11. Vulnerable configuration
 
 The vulnerable version of the lab intentionally contains weak authentication credentials.
 
@@ -130,7 +130,7 @@ The vulnerable configuration is restricted to the Docker lab.
 
 No external or production systems are involved.
 
-12. Secure configuration
+## 12. Secure configuration
 
 This section will be completed after the vulnerable demonstrations are working.
 
@@ -152,7 +152,7 @@ Same test
         ↓
 Expected mitigation / reduced effectiveness
 
-13. Brutus integration
+## 13. Brutus integration
 
 Brutus is an open-source multi-protocol authentication testing tool developed by Praetorian.
 
@@ -174,7 +174,7 @@ exact test commands
 test results
 limitations and observations
 
-14. Testing methodology
+## 14. Testing methodology
 
 All credential-testing activity is intended to remain inside the Docker laboratory.
 
@@ -192,7 +192,7 @@ The planned workflow is:
 
 The final implementation will use small laboratory-specific wordlists rather than large external password databases.
 
-15. Cleanup
+## 15. Cleanup
 
 Stop the laboratory:
 
@@ -206,4 +206,4 @@ To start the laboratory again:
 
 docker compose up -d
 
-References
+## References
