@@ -1,4 +1,4 @@
-Brututs Mini-lab
+# Brututs Mini-lab
 1. Project Overview
 	This Project is a self-contained security testing mini-lab build around the Brutus multi-protocol credential testing tool. 
 
