@@ -30,9 +30,9 @@ The FTP service also uses a passive-mode port range: 30000-30009. These ports ar
 The lab is designed to run using Docker.  
 
 Required software:  
-	- Docker Desktop or another Docker Engine supporting Docker Compose  
-	- Git  
-	- A terminal capable of running Shell commands.  
+- Docker Desktop or another Docker Engine supporting Docker Compose  
+- Git  
+- A terminal capable of running Shell commands.  
 
 The current development environment is Windows with Docker Desktop and Git Bash.
 
