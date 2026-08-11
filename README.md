@@ -1,5 +1,6 @@
 # Brututs Mini-lab
-## 1. Project Overview
+## 1. Project Overview  
+
 This Project is a self-contained security testing mini-lab build around the Brutus multi-protocol credential testing tool. 
 
 The purpose of the lab is to demonstrate credential testing against intentionally vulnerable, locally hosted services in an isolated Docker environment.
