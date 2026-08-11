@@ -11,7 +11,7 @@ RUN useradd -m -s /bin/bash labuser && \
     echo 'labuser:labpassword' | chpasswd
 
 RUN printf '%s\n' \
-    'telnet stream tcp nowait root /usr/sbin/tcpd /usr/sbin/telnetd' \
+    'telnet stream tcp nowait root /usr/sbin/telnetd' \
     > /etc/inetd.conf
 
 EXPOSE 23
