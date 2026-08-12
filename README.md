@@ -178,6 +178,7 @@ Password: labpassword
 Telnet
 Username: user
 Password: password
+```
 
 The weak credentials are intentionally included so that Brutus can demonstrate credential-testing behaviour against all three supported protocols in a controlled environment.
 
@@ -200,27 +201,28 @@ Use the following laboratory credentials when prompted:
 
 Username: labuser
 Password: labpassword
+```
 
 The SSH connection was successfully tested during development.
 
 After logging in, the SSH session can be closed with:
 
-exit
+	exit
 
 ## 9. FTP target
 The FTP service runs inside the FTP target container on TCP port 21.
 
 Docker publishes the service on:
 
-localhost:2121
+	localhost:2121
 
 The FTP service uses passive mode with the following port range:
 
-30000-30009
+	30000-30009
 
 Manual authentication test:
 
-curl -v -u 'labuser:labpassword' ftp://localhost:2121/
+	curl -v -u 'labuser:labpassword' ftp://localhost:2121/
 
 The test successfully demonstrated:
 
@@ -266,13 +268,14 @@ The vulnerable targets are:
 
 The vulnerable Docker Compose configuration is:
 
-```bash
-docker compose.yml
+	docker compose.yml
 
 The targets can be built and started with:
 
-docker compose build
-docker compose up -d
+	docker compose build
+and
+
+	docker compose up -d
 
 The vulnerable test credentials are:
 
@@ -283,7 +286,7 @@ Telnet	user	password
 
 The automated Brutus test can be executed with:
 
-.\tests\test-brutus.ps1
+	.\tests\test-brutus.ps1
 
 The expected result for the vulnerable configuration is successful authentication against all three laboratory targets.
 
@@ -296,8 +299,7 @@ It must not be exposed to external networks or used with real credentials.
 
 The laboratory includes a separate secured configuration that can be started using:
 
-```bash
-docker compose -f docker-compose.secured.yml up -d
+	docker compose -f docker-compose.secured.yml up -d
 
 The secured configuration uses the same three protocols as the vulnerable configuration:
 
@@ -342,13 +344,13 @@ Authentication fails
 
 The secured configuration is provided as a separate Docker Compose file:
 
-docker-compose.secured.yml
+	docker-compose.secured.yml
 
 The individual secured target configurations are:
 
-targets/ssh/Dockerfile.secured
-targets/ftp/Dockerfile.secured
-targets/telnet/Dockerfile.secured
+	targets/ssh/Dockerfile.secured
+	targets/ftp/Dockerfile.secured
+	targets/telnet/Dockerfile.secured
 
 The purpose of the secured configuration is to demonstrate the difference between intentionally vulnerable laboratory credentials and stronger credentials in an otherwise comparable environment.
 
@@ -384,7 +386,7 @@ Telnet: 127.0.0.1:2323
 
 The Brutus integration was verified using an automated PowerShell test script:
 
-tests/test-brutus.ps1
+	tests/test-brutus.ps1
 
 The automated test executes controlled authentication tests against all three laboratory services.
 
@@ -415,16 +417,16 @@ Vulnerable configuration
 
 Start the vulnerable targets:
 
-docker compose build
-docker compose up -d
+	docker compose build
+	docker compose up -d
 
 Verify that the containers are running:
 
-docker compose ps
+	docker compose ps
 
 Run the automated Brutus tests:
 
-.\tests\test-brutus.ps1
+	.\tests\test-brutus.ps1
 
 The test script checks all three protocols:
 
@@ -438,27 +440,27 @@ Secured configuration
 
 Stop the vulnerable configuration:
 
-docker compose down
+	docker compose down
 
 Build the secured targets:
 
-docker compose -f docker-compose.secured.yml build --no-cache
+	docker compose -f docker-compose.secured.yml build --no-cache
 
 Start the secured configuration:
 
-docker compose -f docker-compose.secured.yml up -d
+	docker compose -f docker-compose.secured.yml up -d
 
 Verify the Compose configuration:
 
-docker compose -f docker-compose.secured.yml config
+	docker compose -f docker-compose.secured.yml config
 
 Verify the running containers:
 
-docker compose -f docker-compose.secured.yml ps
+	docker compose -f docker-compose.secured.yml ps
 
 Run the same Brutus test script:
 
-.\tests\test-brutus.ps1
+	.\tests\test-brutus.ps1
 
 The weak credentials used by the vulnerable configuration should now be rejected.
 
@@ -480,35 +482,35 @@ The purpose of the testing is demonstration and validation of the laboratory env
 
 To stop the vulnerable laboratory:
 
-docker compose down
+	docker compose down
 
 To stop the secured laboratory:
 
-docker compose -f docker-compose.secured.yml down
+	docker compose -f docker-compose.secured.yml down
 
 To rebuild the vulnerable containers from scratch:
 
-docker compose build --no-cache
+	docker compose build --no-cache
 
 To rebuild the secured containers from scratch:
 
-docker compose -f docker-compose.secured.yml build --no-cache
+	docker compose -f docker-compose.secured.yml build --no-cache
 
 To start the vulnerable laboratory again:
 
-docker compose up -d
+	docker compose up -d
 
 To start the secured laboratory again:
 
-docker compose -f docker-compose.secured.yml up -d
+	docker compose -f docker-compose.secured.yml up -d
 
 To check the status of the vulnerable laboratory:
 
-docker compose ps
+	docker compose ps
 
 To check the status of the secured laboratory:
 
-docker compose -f docker-compose.secured.yml ps
+	docker compose -f docker-compose.secured.yml ps
 
 After finishing the demonstrations, the containers should be stopped with the appropriate docker compose down command.
 
