@@ -198,18 +198,16 @@ The SSH service runs inside the SSH target container on TCP port 22.
 
 Docker publishes the service on:
 
-```text
-localhost:2222
+	localhost:2222
 
 Manual connectivity test:
 
-ssh -p 2222 labuser@localhost
+	ssh -p 2222 labuser@localhost
 
 Use the following laboratory credentials when prompted:
 
-Username: labuser
-Password: labpassword
-```
+	Username: labuser
+	Password: labpassword
 
 The SSH connection was successfully tested during development.
 
@@ -245,13 +243,14 @@ The FTP service uses vsftpd.
 Anonymous authentication is disabled.
 
 ## 10. Telnet target  
+
 The Telnet service runs inside the Telnet target container on TCP port 23.
 
 Docker publishes the service on:
 
 	localhost:2323
 
-The service was tested from the host environment and successfully returned a Telnet login prompt.
+The service was tested from the host environment and successfully returned a Telnet login prompt.  
 
 The laboratory does not require a native Telnet client on the host for the automated Brutus tests.
 
@@ -296,11 +295,11 @@ The automated Brutus test can be executed with:
 
 	.\tests\test-brutus.ps1
 
-The expected result for the vulnerable configuration is successful authentication against all three laboratory targets.
+The expected result for the vulnerable configuration is successful authentication against all three laboratory targets.  
 
-The vulnerable configuration is intentionally insecure and exists only for controlled testing inside the local Docker laboratory.
-
-It must not be exposed to external networks or used with real credentials.
+The vulnerable configuration is intentionally insecure and exists only for controlled testing inside the local Docker laboratory.  
+ 
+It must not be exposed to external networks or used with real credentials.  
 
 
 ## 12. Secure configuration
@@ -311,9 +310,9 @@ The laboratory includes a separate secured configuration that can be started usi
 
 The secured configuration uses the same three protocols as the vulnerable configuration:
 
-SSH
-FTP
-Telnet
+- SSH
+- FTP
+- Telnet
 
 The main difference is that the secured configuration does not use the weak credentials from the vulnerable targets.
 
@@ -323,6 +322,7 @@ SSH and FTP
 
 	Username: labuser
 	Password: ThisIsAStrongLabPassword_2026!
+	
 Telnet
 
 	Username: user
@@ -386,9 +386,9 @@ brutus/
 
 The laboratory uses Brutus to test authentication against the three locally hosted protocol targets:
 
-SSH
-FTP
-Telnet
+- SSH
+- FTP
+- Telnet
 
 The targets are exposed on the following host ports:
 
