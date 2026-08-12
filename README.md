@@ -550,7 +550,10 @@ To check the status of the secured laboratory:
 
 	docker compose -f docker-compose.secured.yml ps
 
-After finishing the demonstrations, the containers should be stopped with the appropriate docker compose down command.
+After finishing the demonstrations, the containers should be stopped with the appropriate 
+	
+	docker compose down
+command.
 
 ---
 
