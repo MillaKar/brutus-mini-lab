@@ -226,11 +226,11 @@ Manual authentication test:
 
 The test successfully demonstrated:
 
-connection to the FTP service
-authentication using the laboratory account
-successful 230 Login successful response
-successful passive-mode data connection
-successful directory listing
+- connection to the FTP service
+- authentication using the laboratory account
+- successful 230 Login successful response
+- successful passive-mode data connection
+- successful directory listing
 
 The FTP service uses vsftpd.
 
@@ -241,7 +241,7 @@ The Telnet service runs inside the Telnet target container on TCP port 23.
 
 Docker publishes the service on:
 
-localhost:2323
+	localhost:2323
 
 The service was tested from the host environment and successfully returned a Telnet login prompt.
 
@@ -249,8 +249,8 @@ The laboratory does not require a native Telnet client on the host for the autom
 
 The vulnerable Telnet target uses the following credentials:
 
-Username: user
-Password: password
+	Username: user
+	Password: password
 
 The Telnet target is based on the wistic/telnetd Docker image and is included as one of the three protocol targets required by the laboratory assignment.
 
@@ -312,11 +312,13 @@ The main difference is that the secured configuration does not use the weak cred
 The secured credentials are:
 
 SSH and FTP
-Username: labuser
-Password: ThisIsAStrongLabPassword_2026!
+
+	Username: labuser
+	Password: ThisIsAStrongLabPassword_2026!
 Telnet
-Username: user
-Password: ThisIsAStrongPassword123
+
+	Username: user
+	Password: ThisIsAStrongPassword123
 
 The same Brutus tests can be executed against the secured configuration.
 
@@ -360,17 +362,19 @@ Brutus is an open-source multi-protocol authentication testing tool developed by
 
 Official repository:
 
-https://github.com/praetorian-inc/brutus
+	https://github.com/praetorian-inc/brutus
 
 Brutus is implemented in Go and supports multiple network authentication protocols.
 
 A pre-built Brutus executable is included in the laboratory repository:
 
+```
 brutus/
 └── bin/
     ├── brutus.exe
     ├── LICENSE
     └── README.md
+```
 
 The laboratory uses Brutus to test authentication against the three locally hosted protocol targets:
 
@@ -380,9 +384,9 @@ Telnet
 
 The targets are exposed on the following host ports:
 
-SSH:    127.0.0.1:2222
-FTP:    127.0.0.1:2121
-Telnet: 127.0.0.1:2323
+	SSH:    127.0.0.1:2222
+	FTP:    127.0.0.1:2121
+	Telnet: 127.0.0.1:2323
 
 The Brutus integration was verified using an automated PowerShell test script:
 
@@ -393,13 +397,16 @@ The automated test executes controlled authentication tests against all three la
 For the vulnerable configuration, the expected valid credentials are:
 
 SSH:
-labuser / labpassword
+
+	labuser / labpassword
 
 FTP:
-labuser / labpassword
+
+	labuser / labpassword
 
 Telnet:
-user / password
+
+	user / password
 
 The tests successfully demonstrated valid authentication against all three protocols.
 
@@ -413,7 +420,7 @@ All credential-testing activity is intended to remain inside the isolated Docker
 
 The laboratory uses a controlled and reproducible testing workflow.
 
-Vulnerable configuration
+### Vulnerable configuration
 
 Start the vulnerable targets:
 
@@ -430,13 +437,13 @@ Run the automated Brutus tests:
 
 The test script checks all three protocols:
 
-SSH
-FTP
-Telnet
+	SSH
+	FTP
+	Telnet
 
 The vulnerable configuration should result in successful authentication using the intentionally weak laboratory credentials.
 
-Secured configuration
+### Secured configuration
 
 Stop the vulnerable configuration:
 
@@ -464,7 +471,7 @@ Run the same Brutus test script:
 
 The weak credentials used by the vulnerable configuration should now be rejected.
 
-Test comparison
+### Test comparison
 
 The test results can therefore be compared between the two configurations:
 
@@ -516,7 +523,7 @@ After finishing the demonstrations, the containers should be stopped with the ap
 
 ##  16. References
 
-Brutus
+### Brutus
 
 Praetorian's Brutus project:
 
@@ -524,13 +531,13 @@ https://github.com/praetorian-inc/brutus
 
 Brutus is used in this project as the credential-testing tool for the SSH, FTP and Telnet laboratory targets.
 
-Telnet target
+### Telnet target
 
 The Telnet target is based on the wistic/telnetd Docker image.
 
 The image is used as a simple Telnet service target for the isolated laboratory environment.
 
-Inspiration and external resources
+### Inspiration and external resources
 
 The project uses Brutus as the primary external tool and wistic/telnetd as the base image for the Telnet target.
 
