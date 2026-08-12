@@ -175,13 +175,15 @@ Password: labpassword
 ```
 
 ### FTP
-```
+
+```text
 Username: labuser
 Password: labpassword
 ```
 
 ### Telnet
-```
+
+```text
 Username: user
 Password: password
 ```
