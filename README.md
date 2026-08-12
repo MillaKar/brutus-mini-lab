@@ -80,6 +80,8 @@ The containers are:
 - brutus-ftp
 - brutus-telnet
 
+---
+
 ## 4. Requirements
 
 The lab is designed to run using Docker.
@@ -93,6 +95,8 @@ Required software:
 The current development environment is Windows with Docker Desktop and Git Bash.
 
 The lab itself runs the vulnerable services inside Docker containers, so the target services do not need to be installed directly on the host machine.
+
+---
 
 ## 5. Project structure
 
@@ -134,6 +138,8 @@ The vulnerable targets use intentionally weak credentials for the demonstration.
 
 The secured targets use different, stronger credentials so that the same Brutus tests no longer succeed with the weak credentials.
 
+---
+
 ## 6. Setup
 
 Clone the repository:
@@ -160,6 +166,8 @@ All three target containers should report an Up status.
 To stop the lab:
 	
 	docker compose down
+
+---
 
 ## 7. Vulnerable Test Credentials
 
@@ -192,6 +200,8 @@ The weak credentials are intentionally included so that Brutus can demonstrate c
 
 The credentials are part of the vulnerable configuration only. The secured configuration uses different, stronger passwords so that the same Brutus tests can be repeated and compared.
 
+---
+
 ## 8. SSH Target
 
 The SSH service runs inside the SSH target container on TCP port 22.
@@ -214,6 +224,8 @@ The SSH connection was successfully tested during development.
 After logging in, the SSH session can be closed with:
 
 	exit
+
+---
 
 ## 9. FTP target
 The FTP service runs inside the FTP target container on TCP port 21.
@@ -242,6 +254,8 @@ The FTP service uses vsftpd.
 
 Anonymous authentication is disabled.
 
+---
+
 ## 10. Telnet target  
 
 The Telnet service runs inside the Telnet target container on TCP port 23.
@@ -260,6 +274,8 @@ The vulnerable Telnet target uses the following credentials:
 	Password: password
 
 The Telnet target is based on the wistic/telnetd Docker image and is included as one of the three protocol targets required by the laboratory assignment.
+
+---
 
 ## 11. Vulnerable configuration
 
@@ -301,6 +317,7 @@ The vulnerable configuration is intentionally insecure and exists only for contr
  
 It must not be exposed to external networks or used with real credentials.  
 
+---
 
 ## 12. Secure configuration
 
@@ -364,6 +381,8 @@ The individual secured target configurations are:
 
 The purpose of the secured configuration is to demonstrate the difference between intentionally vulnerable laboratory credentials and stronger credentials in an otherwise comparable environment.
 
+---
+
 ## 13. Brutus integration
 
 Brutus is an open-source multi-protocol authentication testing tool developed by Praetorian.
@@ -421,6 +440,8 @@ The tests successfully demonstrated valid authentication against all three proto
 The Brutus test output reports the target information, protocol, authentication result and test summary.
 
 The Brutus executable is used only against the intentionally vulnerable services running locally as part of this laboratory.
+
+---
 
 ## 14. Testing methodology
 
@@ -493,6 +514,8 @@ The tests use small, laboratory-specific credential data. No large external pass
 
 The purpose of the testing is demonstration and validation of the laboratory environment, not testing against external systems.
 
+---
+
 ## 15. Cleanup
 
 To stop the vulnerable laboratory:
@@ -528,6 +551,8 @@ To check the status of the secured laboratory:
 	docker compose -f docker-compose.secured.yml ps
 
 After finishing the demonstrations, the containers should be stopped with the appropriate docker compose down command.
+
+---
 
 ##  16. References
 
