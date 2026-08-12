@@ -73,6 +73,7 @@ brutus-lab network
      v
  Telnet target
  2323 -> 23
+```
 
 The containers are:
 - brutus-ssh
