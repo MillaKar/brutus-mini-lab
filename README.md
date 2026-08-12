@@ -121,6 +121,7 @@ brutus-mini-lab/
 │   └── test-brutus.ps1
 ├── docs/
 └── wordlists/
+```
 
 The Project contains:
 - Docker compose configurations for the vulnerable and secured lab versions.
