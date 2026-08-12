@@ -144,7 +144,7 @@ The secured targets use different, stronger credentials so that the same Brutus 
 
 Clone the repository:
 
-	git clone <REPOSITORY-URL>
+	git clone https://github.com/MillaKar/brutus-mini-lab
 Enter the Project directory:
 
 	cd brutus-mini-lab
