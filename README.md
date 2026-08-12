@@ -172,10 +172,16 @@ These credentials exist only inside the isolated Docker laboratory and are not i
 ```text
 Username: labuser
 Password: labpassword
-FTP
+```
+
+### FTP
+```
 Username: labuser
 Password: labpassword
-Telnet
+```
+
+### Telnet
+```
 Username: user
 Password: password
 ```
