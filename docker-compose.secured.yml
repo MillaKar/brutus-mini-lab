@@ -1,0 +1,35 @@
+services:
+  ssh-target:
+    build:
+      context: ./targets/ssh
+      dockerfile: Dockerfile.secured
+    container_name: brutus-ssh
+    ports:
+      - "2222:22"
+    networks:
+      - brutus-lab
+
+  ftp-target:
+    build:
+      context: ./targets/ftp
+      dockerfile: Dockerfile.secured
+    container_name: brutus-ftp
+    ports:
+      - "2121:21"
+      - "30000-30009:30000-30009"
+    networks:
+      - brutus-lab
+
+  telnet-target:
+    build:
+       context: ./targets/telnet
+       dockerfile: Dockerfile.secured
+    container_name: brutus-telnet
+    ports:
+      - "2323:23"
+    networks:
+      - brutus-lab
+
+networks:
+  brutus-lab:
+    driver: bridge

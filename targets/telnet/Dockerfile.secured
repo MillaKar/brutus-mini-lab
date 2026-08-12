@@ -1,0 +1,5 @@
+FROM wistic/telnetd
+
+RUN echo 'user:ThisIsAStrongPassword123' | /usr/sbin/chpasswd
+
+EXPOSE 23
