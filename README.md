@@ -302,10 +302,11 @@ and
 
 The vulnerable test credentials are:
 
-Protocol	Username	Password
-SSH	labuser	labpassword
-FTP	labuser	labpassword
-Telnet	user	password
+| Protocol | Username | Password |
+|----------|----------|----------|
+| SSH      | labuser  | labpassword |
+| FTP      | labuser  | labpassword |
+| Telnet   | user     | password |
 
 The automated Brutus test can be executed with:
 
@@ -351,6 +352,7 @@ The expected result is that the weak credentials used against the vulnerable con
 
 This provides a simple comparison:
 
+```
 Vulnerable configuration
         ↓
 Brutus credential test
@@ -358,9 +360,11 @@ Brutus credential test
 Weak credentials accepted
         ↓
 Authentication succeeds
+```
 
-versus:
+And vs:
 
+```
 Secured configuration
         ↓
 Same Brutus credential test
@@ -368,6 +372,7 @@ Same Brutus credential test
 Weak credentials rejected
         ↓
 Authentication fails
+```
 
 The secured configuration is provided as a separate Docker Compose file:
 
